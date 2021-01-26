@@ -89,8 +89,8 @@ Configuration DscMetaConfigs
 # Create the metaconfigurations
 # TODO: edit the below as needed for your use case
 $Params = @{
-     RegistrationUrl = 'https://b76d6cc9-4727-4633-9aba-45328875e255.agentsvc.eus2.azure-automation.net/accounts/b76d6cc9-4727-4633-9aba-45328875e255';
-     RegistrationKey = '30xAJKN859qJ1v2ZuBAIWD45m3xby5Z8u/x/JiIv1ZyV7OJi3MN3zqik1F3Kjp685kXbMpECNYLA39VviBi0Yg==';
+     RegistrationUrl = '<Your URL HERE>';
+     RegistrationKey = '<Your Registration Key Here>';
      ComputerName = @('localhost');
      NodeConfigurationName = 'FileResourceDemo.localhost';
      RefreshFrequencyMins = 30;
