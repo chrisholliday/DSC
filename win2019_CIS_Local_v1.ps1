@@ -1,12 +1,11 @@
 # Configuration Definition
 # Based on the CIS_WindowsServer2019_v110 file from # https://github.com/NVISO-BE/posh-dsc-windows-hardening  
 
-Configuration cis_localv2 {
+Configuration cis_local {
 
 
     Import-DscResource -ModuleName 'PSDesiredStateConfiguration'
     Import-DscResource -ModuleName 'NetworkingDSC'
-    Import-DscResource -ModuleName 'xPSDesiredStateConfiguration'
     Import-DscResource -ModuleName 'AuditPolicyDsc'
     Import-DscResource -ModuleName 'SecurityPolicyDsc'
 
@@ -3108,4 +3107,4 @@ Users expressly consent to having their activities monitored, recorded, and shar
         }
     }
 }
-cis_localv2
+cis_local

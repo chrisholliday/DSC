@@ -11,21 +11,21 @@ Install-Module -Name AuditPolicyDsc -Force -Repository PSGallery
 Write-Output "Installing SecurityPolicyDsc module"
 Install-Module -Name SecurityPolicyDsc -Force -Repository PSGallery
 
-Write-Output "Installing xPSDesiredStateConfiguration module"
-Install-Module -Name xPSDesiredStateConfiguration -Force -Repository PSGallery
+# Write-Output "Installing xPSDesiredStateConfiguration module"
+# Install-Module -Name xPSDesiredStateConfiguration -Force -Repository PSGallery
 
 Write-Output "Applying Local Configuration"
 Start-DscConfiguration -Path C:\Staging\cis_local\ -ComputerName localhost
 Get-Job | Wait-Job
 
 Write-Output "Staging AutoConfig for first boot"
-$Action = New-ScheduledTaskAction -Execute powershell.exe -Argument '-NoProfile -WindowStyle Hidden c:\staging\autoexec.ps1'
+# $Action = New-ScheduledTaskAction -Execute powershell.exe -Argument '-NoProfile -WindowStyle Hidden c:\staging\autoexec.ps1'
+$Action = New-ScheduledTaskAction -Execute powershell.exe -Argument 'c:\staging\autoexec.ps1'
 $Trigger = New-ScheduledTaskTrigger -AtStartup
 $Settings= New-ScheduledTaskSettingsSet -StartWhenAvailable
+$Principal = New-ScheduledTaskPrincipal -UserId "System" -LogonType ServiceAccount -RunLevel 'Highest'
 
-Register-ScheduledTask -User SYSTEM -TaskName "Register Computer" -Action $Action -Trigger $Trigger -Settings $Settings
-
-# Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\RunOnce" -Name "AutoRegisterinDSC" -Value "powershell.exe -nologo -file c:\staging\autoexec.ps1"
+Register-ScheduledTask -TaskName "Register Computer" -Action $Action -Trigger $Trigger -Settings $Settings -Principal $Principal
 
 Write-Output "running Sysprep"
 Set-Location $env:windir\system32\sysprep

@@ -1,0 +1,4898 @@
+/*
+@TargetNode='localhost'
+@GeneratedBy=chris
+@GenerationDate=02/02/2021 08:35:39
+@GenerationHost=SAXON
+*/
+
+instance of DSC_NetConnectionProfile as $DSC_NetConnectionProfile1ref
+{
+ResourceID = "[NetConnectionProfile]DefaultConnectionProfile";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::20::9::NetConnectionProfile";
+ ModuleName = "NetworkingDsc";
+ NetworkCategory = "Private";
+ ModuleVersion = "8.2.0";
+ InterfaceAlias = "Ethernet";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource1ref
+{
+ResourceID = "[Registry]fDenyTSConnections";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::26::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server";
+ ValueName = "fDenyTSConnections";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AccountPolicy as $MSFT_AccountPolicy1ref
+{
+ModuleVersion = "2.10.0.0";
+ ResourceID = "[AccountPolicy]AccountPolicies";
+ Account_lockout_duration = 15;
+ Minimum_Password_Age = 1;
+ Store_passwords_using_reversible_encryption = "Disabled";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::36::9::AccountPolicy";
+ Maximum_Password_Age = 60;
+ Account_lockout_threshold = 10;
+ Password_must_meet_complexity_requirements = "Enabled";
+ Minimum_Password_Length = 14;
+ Reset_account_lockout_counter_after = 15;
+ Enforce_password_history = 24;
+ ModuleName = "SecurityPolicyDsc";
+ Name = "PasswordPolicies";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment1ref
+{
+ResourceID = "[UserRightsAssignment]AccessCredentialManagerasatrustedcaller";
+ Identity = {
+    ""
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::59::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Access_Credential_Manager_as_a_trusted_caller";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment2ref
+{
+ResourceID = "[UserRightsAssignment]Accessthiscomputerfromthenetwork";
+ Identity = {
+    "Administrators",
+    "Authenticated Users"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::71::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Access_this_computer_from_the_network";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment3ref
+{
+ResourceID = "[UserRightsAssignment]Actaspartoftheoperatingsystem";
+ Identity = {
+    ""
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::78::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Act_as_part_of_the_operating_system";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment4ref
+{
+ResourceID = "[UserRightsAssignment]Adjustmemoryquotasforaprocess";
+ Identity = {
+    "Administrators",
+    "LOCAL SERVICE",
+    "NETWORK SERVICE"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::90::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Adjust_memory_quotas_for_a_process";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment5ref
+{
+ResourceID = "[UserRightsAssignment]Allowlogonlocally";
+ Identity = {
+    "Administrators"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::96::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Allow_log_on_locally";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment6ref
+{
+ResourceID = "[UserRightsAssignment]AllowlogonthroughRemoteDesktopServices";
+ Identity = {
+    "Administrators",
+    "Remote Desktop Users"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::108::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Allow_log_on_through_Remote_Desktop_Services";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment7ref
+{
+ResourceID = "[UserRightsAssignment]Backupfilesanddirectories";
+ Identity = {
+    "Administrators"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::114::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Back_up_files_and_directories";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment8ref
+{
+ResourceID = "[UserRightsAssignment]Changethesystemtime";
+ Identity = {
+    "Administrators",
+    "LOCAL SERVICE"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::120::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Change_the_system_time";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment9ref
+{
+ResourceID = "[UserRightsAssignment]Changethetimezone";
+ Identity = {
+    "Administrators",
+    "LOCAL SERVICE"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::126::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Change_the_time_zone";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment10ref
+{
+ResourceID = "[UserRightsAssignment]Createapagefile";
+ Identity = {
+    "Administrators"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::132::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Create_a_pagefile";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment11ref
+{
+ResourceID = "[UserRightsAssignment]Createatokenobject";
+ Identity = {
+    ""
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::138::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Create_a_token_object";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment12ref
+{
+ResourceID = "[UserRightsAssignment]Createglobalobjects";
+ Identity = {
+    "Administrators",
+    "LOCAL SERVICE",
+    "NETWORK SERVICE",
+    "SERVICE"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::144::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Create_global_objects";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment13ref
+{
+ResourceID = "[UserRightsAssignment]Createpermanentsharedobjects";
+ Identity = {
+    ""
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::150::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Create_permanent_shared_objects";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment14ref
+{
+ResourceID = "[UserRightsAssignment]Createsymboliclinks";
+ Identity = {
+    "Administrators"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::164::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Create_symbolic_links";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment15ref
+{
+ResourceID = "[UserRightsAssignment]Debugprograms";
+ Identity = {
+    "Administrators"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::170::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Debug_programs";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment16ref
+{
+ResourceID = "[UserRightsAssignment]Denylogonasabatchjob";
+ Identity = {
+    "Guests"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::190::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Deny_log_on_as_a_batch_job";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment17ref
+{
+ResourceID = "[UserRightsAssignment]Denylogonasaservice";
+ Identity = {
+    "Guests"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::196::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Deny_log_on_as_a_service";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment18ref
+{
+ResourceID = "[UserRightsAssignment]Denylogonlocally";
+ Identity = {
+    "Guests"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::202::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Deny_log_on_locally";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment19ref
+{
+ResourceID = "[UserRightsAssignment]DenylogonthroughRemoteDesktopServices";
+ Identity = {
+    "Guests"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::216::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Deny_log_on_through_Remote_Desktop_Services";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment20ref
+{
+ResourceID = "[UserRightsAssignment]Enablecomputeranduseraccountstobetrustedfordelegation";
+ Identity = {
+    ""
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::228::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Enable_computer_and_user_accounts_to_be_trusted_for_delegation";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment21ref
+{
+ResourceID = "[UserRightsAssignment]Forceshutdownfromaremotesystem";
+ Identity = {
+    "Administrators"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::234::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Force_shutdown_from_a_remote_system";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment22ref
+{
+ResourceID = "[UserRightsAssignment]Generatesecurityaudits";
+ Identity = {
+    "LOCAL SERVICE",
+    "NETWORK SERVICE"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::240::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Generate_security_audits";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment23ref
+{
+ResourceID = "[UserRightsAssignment]Impersonateaclientafterauthentication";
+ Identity = {
+    "Administrators",
+    "LOCAL SERVICE",
+    "NETWORK SERVICE",
+    "SERVICE",
+    "IIS_IUSRS"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::252::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Impersonate_a_client_after_authentication";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment24ref
+{
+ResourceID = "[UserRightsAssignment]Increaseschedulingpriority";
+ Identity = {
+    "Administrators",
+    "Window Manager\\Window Manager Group"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::259::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Increase_scheduling_priority";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment25ref
+{
+ResourceID = "[UserRightsAssignment]Loadandunloaddevicedrivers";
+ Identity = {
+    "Administrators"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::265::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Load_and_unload_device_drivers";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment26ref
+{
+ResourceID = "[UserRightsAssignment]Lockpagesinmemory";
+ Identity = {
+    ""
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::271::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Lock_pages_in_memory";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment27ref
+{
+ResourceID = "[UserRightsAssignment]Manageauditingandsecuritylog";
+ Identity = {
+    "Administrators"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::289::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Manage_auditing_and_security_log";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment28ref
+{
+ResourceID = "[UserRightsAssignment]Modifyanobjectlabel";
+ Identity = {
+    ""
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::295::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Modify_an_object_label";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment29ref
+{
+ResourceID = "[UserRightsAssignment]Modifyfirmwareenvironmentvalues";
+ Identity = {
+    "Administrators"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::301::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Modify_firmware_environment_values";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment30ref
+{
+ResourceID = "[UserRightsAssignment]Performvolumemaintenancetasks";
+ Identity = {
+    "Administrators"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::307::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Perform_volume_maintenance_tasks";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment31ref
+{
+ResourceID = "[UserRightsAssignment]Profilesingleprocess";
+ Identity = {
+    "Administrators"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::313::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Profile_single_process";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment32ref
+{
+ResourceID = "[UserRightsAssignment]Profilesystemperformance";
+ Identity = {
+    "Administrators",
+    "NT SERVICE\\WdiServiceHost"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::319::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Profile_system_performance";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment33ref
+{
+ResourceID = "[UserRightsAssignment]Replaceaprocessleveltoken";
+ Identity = {
+    "LOCAL SERVICE",
+    "NETWORK SERVICE"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::325::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Replace_a_process_level_token";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment34ref
+{
+ResourceID = "[UserRightsAssignment]Restorefilesanddirectories";
+ Identity = {
+    "Administrators"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::331::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Restore_files_and_directories";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment35ref
+{
+ResourceID = "[UserRightsAssignment]Shutdownthesystem";
+ Identity = {
+    "Administrators"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::337::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Shut_down_the_system";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_UserRightsAssignment as $MSFT_UserRightsAssignment36ref
+{
+ResourceID = "[UserRightsAssignment]Takeownershipoffilesorotherobjects";
+ Identity = {
+    "Administrators"
+};
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::349::9::UserRightsAssignment";
+ ModuleVersion = "2.10.0.0";
+ ModuleName = "SecurityPolicyDsc";
+ Policy = "Take_ownership_of_files_or_other_objects";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RestrictedRemoteSamSecurityDescriptor as $MSFT_RestrictedRemoteSamSecurityDescriptor1ref
+{
+Permission = "Allow";
+ Identity = "Administrators";
+
+};
+
+instance of MSFT_SecurityOption as $MSFT_SecurityOption1ref
+{
+Microsoft_network_server_Server_SPN_target_name_validation_level = "Accept if provided by client";
+ Microsoft_network_server_Amount_of_idle_time_required_before_suspending_session = "15";
+ User_Account_Control_Admin_Approval_Mode_for_the_Built_in_Administrator_account = "Enabled";
+ Accounts_Rename_guest_account = "Unwanted";
+ Network_Security_Allow_PKU2U_authentication_requests_to_this_computer_to_use_online_identities = "Disabled";
+ System_objects_Strengthen_default_permissions_of_internal_system_objects_eg_Symbolic_Links = "Enabled";
+ User_Account_Control_Only_elevate_UIAccess_applications_that_are_installed_in_secure_locations = "Enabled";
+ User_Account_Control_Behavior_of_the_elevation_prompt_for_administrators_in_Admin_Approval_Mode = "Prompt for consent on the secure desktop";
+ Name = "AccountSecurityOptions";
+ Interactive_logon_Require_Domain_Controller_authentication_to_unlock_workstation = "Enabled";
+ Network_access_Shares_that_can_be_accessed_anonymously = "";
+ ModuleName = "SecurityPolicyDsc";
+ Microsoft_network_client_Digitally_sign_communications_always = "Enabled";
+ User_Account_Control_Detect_application_installations_and_prompt_for_elevation = "Enabled";
+ Microsoft_network_server_Digitally_sign_communications_if_client_agrees = "Enabled";
+ Microsoft_network_client_Send_unencrypted_password_to_third_party_SMB_servers = "Disabled";
+ Interactive_logon_Message_text_for_users_attempting_to_log_on = "WARNING! If you are not authorized to use this private network, please disconnect immediately. Unauthorized access is prohibited and may result in civil and/or criminal prosecution. \nUsers expressly consent to having their activities monitored, recorded, and shared with third parties. By your continued use of this network, you acknowledge that you have read, understood, and agree with this warning message.";
+ Network_access_Named_Pipes_that_can_be_accessed_anonymously = "";
+ Network_security_Force_logoff_when_logon_hours_expire = "Enabled";
+ ResourceID = "[SecurityOption]AccountSecurityOptions";
+ Network_security_Allow_LocalSystem_NULL_session_fallback = "Disabled";
+ ModuleVersion = "2.10.0.0";
+ Network_access_Do_not_allow_anonymous_enumeration_of_SAM_accounts = "Enabled";
+ Network_security_Minimum_session_security_for_NTLM_SSP_based_including_secure_RPC_servers = "Both options checked";
+ Audit_Shut_down_system_immediately_if_unable_to_log_security_audits = "Disabled";
+ Network_access_Sharing_and_security_model_for_local_accounts = "Classic - Local users authenticate as themselves";
+ User_Account_Control_Behavior_of_the_elevation_prompt_for_standard_users = "Automatically deny elevation request";
+ Network_access_Do_not_allow_anonymous_enumeration_of_SAM_accounts_and_shares = "Enabled";
+ Network_security_Minimum_session_security_for_NTLM_SSP_based_including_secure_RPC_clients = "Both options checked";
+ Accounts_Guest_account_status = "Disabled";
+ Accounts_Limit_local_account_use_of_blank_passwords_to_console_logon_only = "Enabled";
+ Shutdown_Allow_system_to_be_shut_down_without_having_to_log_on = "Disabled";
+ Network_security_Configure_encryption_types_allowed_for_Kerberos = {
+    "AES128_HMAC_SHA1",
+    "AES256_HMAC_SHA1"
+};
+ User_Account_Control_Switch_to_the_secure_desktop_when_prompting_for_elevation = "Enabled";
+ Network_security_Allow_Local_System_to_use_computer_identity_for_NTLM = "Enabled";
+ Interactive_logon_Machine_inactivity_limit = "900";
+ Network_access_Restrict_clients_allowed_to_make_remote_calls_to_SAM = {
+    $MSFT_RestrictedRemoteSamSecurityDescriptor1ref
+};
+ Microsoft_network_server_Disconnect_clients_when_logon_hours_expire = "Enabled";
+ User_Account_Control_Virtualize_file_and_registry_write_failures_to_per_user_locations = "Enabled";
+ Network_access_Do_not_allow_storage_of_passwords_and_credentials_for_network_authentication = "Enabled";
+ Devices_Prevent_users_from_installing_printer_drivers = "Enabled";
+ Audit_Force_audit_policy_subcategory_settings_Windows_Vista_or_later_to_override_audit_policy_category_settings = "Enabled";
+ Microsoft_network_server_Digitally_sign_communications_always = "Enabled";
+ Interactive_logon_Prompt_user_to_change_password_before_expiration = "14";
+ Network_access_Remotely_accessible_registry_paths = "HKLM\\System\\CurrentControlSet\\Control\\ProductOptions,HKLM\\System\\CurrentControlSet\\Control\\Server Applications,HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion";
+ Interactive_logon_Do_not_display_last_user_name = "Enabled";
+ Network_security_Do_not_store_LAN_Manager_hash_value_on_next_password_change = "Enabled";
+ Interactive_logon_Number_of_previous_logons_to_cache_in_case_domain_controller_is_not_available = "4";
+ Interactive_logon_Do_not_require_CTRL_ALT_DEL = "Disabled";
+ Network_access_Allow_anonymous_SID_Name_translation = "Disabled";
+ Network_access_Let_Everyone_permissions_apply_to_anonymous_users = "Disabled";
+ Network_security_LAN_Manager_authentication_level = "Send NTLMv2 responses only. Refuse LM & NTLM";
+ Interactive_logon_Message_title_for_users_attempting_to_log_on = "Warning!";
+ Network_access_Remotely_accessible_registry_paths_and_subpaths = "System\\CurrentControlSet\\Control\\Print\\Printers,System\\CurrentControlSet\\Services\\Eventlog,Software\\MicrosoftOLAP Server,Software\\Microsoft\\Windows NT\\CurrentVersion\\Print,Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows,System\\CurrentControlSet\\Control\\ContentIndex,System\\CurrentControlSet\\Control\\Terminal Server,System\\CurrentControlSet\\Control\\Terminal Server\\UserConfig,System\\CurrentControlSet\\Control\\Terminal Server\\DefaultUserConfiguration,Software\\Microsoft\\Windows NT\\CurrentVersion\\Perflib,System\\CurrentControlSet\\Services\\SysmonLog";
+ Microsoft_network_client_Digitally_sign_communications_if_server_agrees = "Enabled";
+ Devices_Allowed_to_format_and_eject_removable_media = "Administrators";
+ Network_security_LDAP_client_signing_requirements = "Negotiate Signing";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::355::9::SecurityOption";
+ User_Account_Control_Run_all_administrators_in_Admin_Approval_Mode = "Enabled";
+ Network_access_Restrict_anonymous_access_to_Named_Pipes_and_Shares = "Enabled";
+ System_objects_Require_case_insensitivity_for_non_Windows_subsystems = "Enabled";
+ Interactive_logon_Smart_card_removal_behavior = "Lock workstation";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource2ref
+{
+ResourceID = "[Registry]NOT_ASSIGNED: Ensure 'Network access: Restrict clients allowed to make remote calls to SAM' is set to 'Administrators: Remote Access: Allow'";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::514::9::Registry";
+ ValueData = {
+    "O:BAG:BAD:(A;;RC;;;BA)"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKLM:\\System\\CurrentControlSet\\Control\\Lsa";
+ ValueName = "RestrictRemoteSAM";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource3ref
+{
+ResourceID = "[Registry]EnableFirewallDomain";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::522::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\DomainProfile\\EnableFirewall";
+ ValueName = "EnableFirewall";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource4ref
+{
+ResourceID = "[Registry]DefaultInboundActionDomain";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::531::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\DomainProfile\\DefaultInboundAction";
+ ValueName = "DefaultInboundAction";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource5ref
+{
+ResourceID = "[Registry]DefaultOutboundActionDomain";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::540::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\DomainProfile\\DefaultOutboundAction";
+ ValueName = "DefaultOutboundAction";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource6ref
+{
+ResourceID = "[Registry]DisableNotificationsDomain";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::549::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\DomainProfile\\DisableNotifications";
+ ValueName = "DisableNotifications";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource7ref
+{
+ResourceID = "[Registry]LogFilePathDomain";
+ Ensure = "Present";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::558::9::Registry";
+ ValueData = {
+    "%windir%\\system32\\logfiles\\firewall\\domainfirewall.log"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\DomainProfile\\Logging\\LogFilePath";
+ ValueName = "DisableNotifications";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource8ref
+{
+ResourceID = "[Registry]LogFileSizeDomain";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::567::9::Registry";
+ ValueData = {
+    "16384"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\DomainProfile\\Logging\\LogFileSize";
+ ValueName = "LogFileSize";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource9ref
+{
+ResourceID = "[Registry]LogDroppedPacketsDomain";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::576::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\DomainProfile\\Logging\\LogDroppedPackets";
+ ValueName = "LogDroppedPackets";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource10ref
+{
+ResourceID = "[Registry]LogSuccessfulConnectionsDomain";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::585::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\DomainProfile\\Logging\\LogSuccessfulConnections";
+ ValueName = "LogSuccessfulConnections";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource11ref
+{
+ResourceID = "[Registry]EnableFirewallPrivate";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::594::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PrivateProfile";
+ ValueName = "EnableFirewall";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource12ref
+{
+ResourceID = "[Registry]DefaultInboundActionPrivate";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::603::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PrivateProfile";
+ ValueName = "DefaultInboundAction";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource13ref
+{
+ResourceID = "[Registry]DefaultOutboundActionPrivate";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::612::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PrivateProfile";
+ ValueName = "DefaultOutboundAction";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource14ref
+{
+ResourceID = "[Registry]DisableNotificationsPrivate";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::621::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PrivateProfile";
+ ValueName = "DisableNotifications";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource15ref
+{
+ResourceID = "[Registry]LogFilePathPrivate";
+ Ensure = "Present";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::630::9::Registry";
+ ValueData = {
+    "%windir%\\system32\\logfiles\\firewall\\privatefirewall.log"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PrivateProfile\\Logging";
+ ValueName = "LogFilePath";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource16ref
+{
+ResourceID = "[Registry]LogFileSizePrivate";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::639::9::Registry";
+ ValueData = {
+    "16384"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PrivateProfile\\Logging";
+ ValueName = "LogFileSize";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource17ref
+{
+ResourceID = "[Registry]LogDroppedPacketsPrivate";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::648::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PrivateProfile\\Logging";
+ ValueName = "LogDroppedPackets";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource18ref
+{
+ResourceID = "[Registry]LogSuccessfulConnectionsPrivate";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::657::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PrivateProfile\\Logging";
+ ValueName = "LogSuccessfulConnections";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource19ref
+{
+ResourceID = "[Registry]EnableFirewallPublic";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::666::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile";
+ ValueName = "EnableFirewall";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource20ref
+{
+ResourceID = "[Registry]DefaultInboundActionPublic";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::675::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile";
+ ValueName = "DefaultInboundAction";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource21ref
+{
+ResourceID = "[Registry]DefaultOutboundActionPublic";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::684::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile";
+ ValueName = "DefaultOutboundAction";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource22ref
+{
+ResourceID = "[Registry]DisableNotificationsPublic";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::693::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile";
+ ValueName = "DisableNotifications";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource23ref
+{
+ResourceID = "[Registry]AllowLocalPolicyMerge";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::702::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile";
+ ValueName = "AllowLocalPolicyMerge";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource24ref
+{
+ResourceID = "[Registry]AllowLocalIPsecPolicyMerge";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::711::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile";
+ ValueName = "AllowLocalIPsecPolicyMerge";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource25ref
+{
+ResourceID = "[Registry]LogFilePathPublic";
+ Ensure = "Present";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::720::9::Registry";
+ ValueData = {
+    "%windir%\\system32\\logfiles\\firewall\\publicfirewall.log"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile\\Logging";
+ ValueName = "LogFilePath";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource26ref
+{
+ResourceID = "[Registry]LogFileSizePublic";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::729::9::Registry";
+ ValueData = {
+    "16384"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile\\Logging";
+ ValueName = "LogFileSize";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource27ref
+{
+ResourceID = "[Registry]LogDroppedPacketsPublic";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::738::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile\\Logging";
+ ValueName = "LogDroppedPackets";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource28ref
+{
+ResourceID = "[Registry]LogSuccessfulConnectionsPublic";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::747::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile\\Logging";
+ ValueName = "LogSuccessfulConnections";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory1ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Credential Validation (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::756::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Credential Validation";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory2ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Credential Validation (Failure)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::762::9::AuditPolicySubcategory";
+ AuditFlag = "Failure";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Credential Validation";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory3ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Application Group Management (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::771::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Application Group Management";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory4ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Application Group Management (Failure)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::777::9::AuditPolicySubcategory";
+ AuditFlag = "Failure";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Application Group Management";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory5ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Security Group Management (Failure)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::827::9::AuditPolicySubcategory";
+ AuditFlag = "Failure";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Security Group Management";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory6ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Security Group Management (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::833::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Security Group Management";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory7ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit User Account Management (Failure)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::840::9::AuditPolicySubcategory";
+ AuditFlag = "Failure";
+ ModuleName = "AuditPolicyDsc";
+ Name = "User Account Management";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory8ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit User Account Management (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::846::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "User Account Management";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory9ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit PNP Activity (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::853::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Plug and Play Events";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory10ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit PNP Activity (Failure)";
+ Ensure = "Absent";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::859::9::AuditPolicySubcategory";
+ AuditFlag = "Failure";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Plug and Play Events";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory11ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Process Creation (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::866::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Process Creation";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory12ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Process Creation (Failure)";
+ Ensure = "Absent";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::872::9::AuditPolicySubcategory";
+ AuditFlag = "Failure";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Process Creation";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory13ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Account Lockout (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::909::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Account Lockout";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory14ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Account Lockout (Failure)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::915::9::AuditPolicySubcategory";
+ AuditFlag = "Failure";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Account Lockout";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory15ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Group Membership (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::922::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Group Membership";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory16ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Group Membership (Failure)";
+ Ensure = "Absent";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::928::9::AuditPolicySubcategory";
+ AuditFlag = "Failure";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Group Membership";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory17ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Logoff (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::935::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Logoff";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory18ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Logon (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::942::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Logon";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory19ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Logon (Failure)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::948::9::AuditPolicySubcategory";
+ AuditFlag = "Failure";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Logon";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory20ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Other Logon/Logoff Events (Failure)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::955::9::AuditPolicySubcategory";
+ AuditFlag = "Failure";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Other Logon/Logoff Events";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory21ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Other Logon/Logoff Events (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::961::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Other Logon/Logoff Events";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory22ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Special Logon (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::968::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Special Logon";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory23ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Detailed File Share (Failure)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::975::9::AuditPolicySubcategory";
+ AuditFlag = "Failure";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Detailed File Share";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory24ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit File Share (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::982::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "File Share";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory25ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit File Share (Failure)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::988::9::AuditPolicySubcategory";
+ AuditFlag = "Failure";
+ ModuleName = "AuditPolicyDsc";
+ Name = "File Share";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory26ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Other Object Access Events (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::995::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Other Object Access Events";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory27ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Other Object Access Events (Failure)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1001::9::AuditPolicySubcategory";
+ AuditFlag = "Failure";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Other Object Access Events";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory28ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Removable Storage (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1008::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Removable Storage";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory29ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Removable Storage (Failure)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1014::9::AuditPolicySubcategory";
+ AuditFlag = "Failure";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Removable Storage";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory30ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Policy Change (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1021::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Audit Policy Change";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory31ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Authentication Policy Change (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1028::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Authentication Policy Change";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory32ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Authorization Policy Change (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1036::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Authorization Policy Change";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory33ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit MPSSVC Rule-Level Policy Change (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1043::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "MPSSVC Rule-Level Policy Change";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory34ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit MPSSVC Rule-Level Policy Change (Failure)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1049::9::AuditPolicySubcategory";
+ AuditFlag = "Failure";
+ ModuleName = "AuditPolicyDsc";
+ Name = "MPSSVC Rule-Level Policy Change";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory35ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Other Policy Change Events (Failure)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1056::9::AuditPolicySubcategory";
+ AuditFlag = "Failure";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Other Policy Change Events";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory36ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Sensitive Privilege Use (Failure)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1063::9::AuditPolicySubcategory";
+ AuditFlag = "Failure";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Sensitive Privilege Use";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory37ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Sensitive Privilege Use (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1069::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Sensitive Privilege Use";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory38ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit IPsec Driver (Failure)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1076::9::AuditPolicySubcategory";
+ AuditFlag = "Failure";
+ ModuleName = "AuditPolicyDsc";
+ Name = "IPsec Driver";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory39ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit IPsec Driver (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1082::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "IPsec Driver";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory40ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Other System Events (Failure)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1089::9::AuditPolicySubcategory";
+ AuditFlag = "Failure";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Other System Events";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory41ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Other System Events (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1095::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Other System Events";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory42ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Security State Change (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1102::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Security State Change";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory43ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit Security System Extension (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1109::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "Security System Extension";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory44ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit System Integrity (Failure)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1116::9::AuditPolicySubcategory";
+ AuditFlag = "Failure";
+ ModuleName = "AuditPolicyDsc";
+ Name = "System Integrity";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_AuditPolicySubcategory as $MSFT_AuditPolicySubcategory45ref
+{
+ResourceID = "[AuditPolicySubcategory]Audit System Integrity (Success)";
+ Ensure = "Present";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1122::9::AuditPolicySubcategory";
+ AuditFlag = "Success";
+ ModuleName = "AuditPolicyDsc";
+ Name = "System Integrity";
+ ModuleVersion = "1.4.0.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource29ref
+{
+ResourceID = "[Registry]NoLockScreenCamera";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1129::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Personalization";
+ ValueName = "NoLockScreenCamera";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource30ref
+{
+ResourceID = "[Registry]NoLockScreenSlideshow";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1138::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Personalization";
+ ValueName = "NoLockScreenSlideshow";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource31ref
+{
+ResourceID = "[Registry]AllowInputPersonalization";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1147::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\InputPersonalization";
+ ValueName = "AllowInputPersonalization";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource32ref
+{
+ResourceID = "[Registry]AllowOnlineTips";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1156::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer";
+ ValueName = "AllowOnlineTips";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource33ref
+{
+ResourceID = "[Registry]LocalAccountTokenFilterPolicy";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1225::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System";
+ ValueName = "LocalAccountTokenFilterPolicy";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource34ref
+{
+ResourceID = "[Registry]Start";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1234::9::Registry";
+ ValueData = {
+    "4"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\mrxsmb10";
+ ValueName = "Start";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource35ref
+{
+ResourceID = "[Registry]SMB1";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1243::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\LanmanServer\\Parameters";
+ ValueName = "SMB1";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource36ref
+{
+ResourceID = "[Registry]DisableExceptionChainValidation";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1252::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\SessionManager\\kernel";
+ ValueName = "DisableExceptionChainValidation";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource37ref
+{
+ResourceID = "[Registry]NetBTNodeType";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1271::9::Registry";
+ ValueData = {
+    "2"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\NetBT\\Parameters";
+ ValueName = "NodeType";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource38ref
+{
+ResourceID = "[Registry]UseLogonCredential";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1279::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\WDigest";
+ ValueName = "UseLogonCredential";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource39ref
+{
+ResourceID = "[Registry]AutoAdminLogon";
+ Ensure = "Present";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1288::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\WindowsNT\\CurrentVersion\\Winlogon";
+ ValueName = "AutoAdminLogon";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource40ref
+{
+ResourceID = "[Registry]DisableIPSourceRouting";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1297::9::Registry";
+ ValueData = {
+    "2"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Tcpip6\\Parameters";
+ ValueName = "DisableIPSourceRouting";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource41ref
+{
+ResourceID = "[Registry]DisableIPSourceRouting2";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1306::9::Registry";
+ ValueData = {
+    "2"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters";
+ ValueName = "DisableIPSourceRouting";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource42ref
+{
+ResourceID = "[Registry]EnableICMPRedirect";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1315::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters";
+ ValueName = "EnableICMPRedirect";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource43ref
+{
+ResourceID = "[Registry]KeepAliveTime";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1324::9::Registry";
+ ValueData = {
+    "300000"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters";
+ ValueName = "KeepAliveTime";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource44ref
+{
+ResourceID = "[Registry]NoNameReleaseOnDemand";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1333::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\NetBT\\Parameters";
+ ValueName = "NoNameReleaseOnDemand";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource45ref
+{
+ResourceID = "[Registry]PerformRouterDiscovery";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1342::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters";
+ ValueName = "PerformRouterDiscovery";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource46ref
+{
+ResourceID = "[Registry]SafeDllSearchMode";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1351::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\SessionManager";
+ ValueName = "SafeDllSearchMode";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource47ref
+{
+ResourceID = "[Registry]ScreenSaverGracePeriod";
+ Ensure = "Present";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1360::9::Registry";
+ ValueData = {
+    "5"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\WindowsNT\\CurrentVersion\\Winlogon";
+ ValueName = "ScreenSaverGracePeriod";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource48ref
+{
+ResourceID = "[Registry]TcpMaxDataRetransmissions";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1369::9::Registry";
+ ValueData = {
+    "3"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\TCPIP6\\Parameters";
+ ValueName = "TcpMaxDataRetransmissions";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource49ref
+{
+ResourceID = "[Registry]TcpMaxDataRetransmissions2";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1378::9::Registry";
+ ValueData = {
+    "3"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters";
+ ValueName = "TcpMaxDataRetransmissions";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource50ref
+{
+ResourceID = "[Registry]WarningLevel";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1387::9::Registry";
+ ValueData = {
+    "90"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Eventlog\\Security";
+ ValueName = "WarningLevel";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource51ref
+{
+ResourceID = "[Registry]EnableMulticast";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1396::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsNT\\DNSClient";
+ ValueName = "EnableMulticast";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource52ref
+{
+ResourceID = "[Registry]EnableFontProviders";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1405::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System";
+ ValueName = "EnableFontProviders";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource53ref
+{
+ResourceID = "[Registry]AllowInsecureGuestAuth";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1414::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\LanmanWorkstation";
+ ValueName = "AllowInsecureGuestAuth";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource54ref
+{
+ResourceID = "[Registry]AllowLLTDIOOnDomain";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1423::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\LLTD";
+ ValueName = "AllowLLTDIOOnDomain";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource55ref
+{
+ResourceID = "[Registry]AllowLLTDIOOnPublicNet";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1431::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\LLTD";
+ ValueName = "AllowLLTDIOOnPublicNet";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource56ref
+{
+ResourceID = "[Registry]EnableLLTDIO";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1439::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\LLTD";
+ ValueName = "EnableLLTDIO";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource57ref
+{
+ResourceID = "[Registry]ProhibitLLTDIOOnPrivateNet";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1447::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\LLTD";
+ ValueName = "ProhibitLLTDIOOnPrivateNet";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource58ref
+{
+ResourceID = "[Registry]AllowRspndrOnDomain";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1456::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\LLTD";
+ ValueName = "AllowRspndrOnDomain";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource59ref
+{
+ResourceID = "[Registry]AllowRspndrOnPublicNet";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1464::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\LLTD";
+ ValueName = "AllowRspndrOnPublicNet";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource60ref
+{
+ResourceID = "[Registry]EnableRspndr";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1472::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\LLTD";
+ ValueName = "EnableRspndr";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource61ref
+{
+ResourceID = "[Registry]ProhibitRspndrOnPrivateNet";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1480::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\LLTD";
+ ValueName = "ProhibitRspndrOnPrivateNet";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource62ref
+{
+ResourceID = "[Registry]Disabled";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1489::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Peernet";
+ ValueName = "Disabled";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource63ref
+{
+ResourceID = "[Registry]NC_AllowNetBridge_NLA";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1498::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\NetworkConnections";
+ ValueName = "NC_AllowNetBridge_NLA";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource64ref
+{
+ResourceID = "[Registry]NC_ShowSharedAccessUI";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1507::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\NetworkConnections";
+ ValueName = "NC_ShowSharedAccessUI";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource65ref
+{
+ResourceID = "[Registry]NC_StdDomainUserSetLocation";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1516::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\NetworkConnections";
+ ValueName = "NC_StdDomainUserSetLocation";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource66ref
+{
+ResourceID = "[Registry]\\\\*\\NETLOGON";
+ Ensure = "Present";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1525::9::Registry";
+ ValueData = {
+    "RequireMutualAuthentication=1, RequireIntegrity=1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\NetworkProvider\\HardenedPaths";
+ ValueName = "\\\\*\\NETLOGON";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource67ref
+{
+ResourceID = "[Registry]\\\\*\\SYSVOL";
+ Ensure = "Present";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1533::9::Registry";
+ ValueData = {
+    "RequireMutualAuthentication=1, RequireIntegrity=1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\NetworkProvider\\HardenedPaths";
+ ValueName = "\\\\*\\SYSVOL";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource68ref
+{
+ResourceID = "[Registry]DisabledComponents";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1542::9::Registry";
+ ValueData = {
+    "255"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\TCPIP6\\Parameters";
+ ValueName = "DisabledComponents";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource69ref
+{
+ResourceID = "[Registry]EnableRegistrars";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1551::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WCN\\Registrars";
+ ValueName = "EnableRegistrars";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource70ref
+{
+ResourceID = "[Registry]DisableUPnPRegistrar";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1559::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WCN\\Registrars";
+ ValueName = "DisableUPnPRegistrar";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource71ref
+{
+ResourceID = "[Registry]DisableInBand802DOT11Registrar";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1567::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WCN\\Registrars";
+ ValueName = "DisableInBand802DOT11Registrar";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource72ref
+{
+ResourceID = "[Registry]DisableFlashConfigRegistrar";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1575::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WCN\\Registrars";
+ ValueName = "DisableFlashConfigRegistrar";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource73ref
+{
+ResourceID = "[Registry]DisableWPDRegistrar";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1583::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WCN\\Registrars";
+ ValueName = "DisableWPDRegistrar";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource74ref
+{
+ResourceID = "[Registry]DisableWcnUi";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1592::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WCN\\UI";
+ ValueName = "DisableWcnUi";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource75ref
+{
+ResourceID = "[Registry]fMinimizeConnections";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1602::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WcmSvc\\GroupPolicy";
+ ValueName = "fMinimizeConnections";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource76ref
+{
+ResourceID = "[Registry]fBlockNonDomain";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1611::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WcmSvc\\GroupPolicy";
+ ValueName = "fBlockNonDomain";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource77ref
+{
+ResourceID = "[Registry]notificationsnetworkusage";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1620::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\CurrentVersion\\PushNotifications";
+ ValueName = "NoCloudApplicationNotification";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource78ref
+{
+ResourceID = "[Registry]ProcessCreationIncludeCmdLine_Enabled";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1629::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\Audit";
+ ValueName = "ProcessCreationIncludeCmdLine_Enabled";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource79ref
+{
+ResourceID = "[Registry]EncryptionOracleRemediation ";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1639::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\CredSSP\\Parameters";
+ ValueName = "AllowEncryptionOracle";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource80ref
+{
+ResourceID = "[Registry]AllowProtectedCreds";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1648::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\CredentialsDelegation";
+ ValueName = "AllowProtectedCreds";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource81ref
+{
+ResourceID = "[Registry]EnableVirtualizationBasedSecurity";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1657::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard";
+ ValueName = "EnableVirtualizationBasedSecurity";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource82ref
+{
+ResourceID = "[Registry]RequirePlatformSecurityFeatures";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1666::9::Registry";
+ ValueData = {
+    "3"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard";
+ ValueName = "RequirePlatformSecurityFeatures";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource83ref
+{
+ResourceID = "[Registry]HypervisorEnforcedCodeIntegrity";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1675::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard";
+ ValueName = "HypervisorEnforcedCodeIntegrity";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource84ref
+{
+ResourceID = "[Registry]HVCIMATRequired";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1684::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard";
+ ValueName = "HVCIMATRequired";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource85ref
+{
+ResourceID = "[Registry]LsaCfgFlags";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1693::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard";
+ ValueName = "LsaCfgFlags";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource86ref
+{
+ResourceID = "[Registry]ConfigureSystemGuardLaunch";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1711::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard";
+ ValueName = "ConfigureSystemGuardLaunch";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource87ref
+{
+ResourceID = "[Registry]DriverLoadPolicy";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1720::9::Registry";
+ ValueData = {
+    "3"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Policies\\EarlyLaunch";
+ ValueName = "DriverLoadPolicy";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource88ref
+{
+ResourceID = "[Registry]NoBackgroundPolicy";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1729::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\GroupPolicy\\{35378EAC-683F-11D2-A89A-00C04FBBCFA2}";
+ ValueName = "NoBackgroundPolicy";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource89ref
+{
+ResourceID = "[Registry]NoGPOListChanges";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1738::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\GroupPolicy\\{35378EAC-683F-11D2-A89A-00C04FBBCFA2}";
+ ValueName = "NoGPOListChanges";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource90ref
+{
+ResourceID = "[Registry]EnableCdp";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1747::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System";
+ ValueName = "EnableCdp";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource91ref
+{
+ResourceID = "[Registry]DisableBkGndGroupPolicy";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1756::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System";
+ ValueName = "DisableBkGndGroupPolicy";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource92ref
+{
+ResourceID = "[Registry]DisableWebPnPDownload";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1765::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsNT\\Printers";
+ ValueName = "DisableWebPnPDownload";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource93ref
+{
+ResourceID = "[Registry]PreventHandwritingDataSharing";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1774::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\TabletPC";
+ ValueName = "PreventHandwritingDataSharing";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource94ref
+{
+ResourceID = "[Registry]PreventHandwritingErrorReports";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1783::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\HandwritingErrorReports";
+ ValueName = "PreventHandwritingErrorReports";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource95ref
+{
+ResourceID = "[Registry]ExitOnMSICW";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1792::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Internet Connection Wizard";
+ ValueName = "ExitOnMSICW";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource96ref
+{
+ResourceID = "[Registry]NoWebServices";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1801::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer";
+ ValueName = "NoWebServices";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource97ref
+{
+ResourceID = "[Registry]DisableHTTPPrinting";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1810::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsNT\\Printers";
+ ValueName = "DisableHTTPPrinting";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource98ref
+{
+ResourceID = "[Registry]NoRegistration";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1819::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Registration Wizard Control";
+ ValueName = "NoRegistration";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource99ref
+{
+ResourceID = "[Registry]DisableContentFileUpdates";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1828::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\SearchCompanion";
+ ValueName = "DisableContentFileUpdates";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource100ref
+{
+ResourceID = "[Registry]NoOnlinePrintsWizard";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1837::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer";
+ ValueName = "NoOnlinePrintsWizard";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource101ref
+{
+ResourceID = "[Registry]NoPublishingWizard";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1846::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer";
+ ValueName = "NoPublishingWizard";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource102ref
+{
+ResourceID = "[Registry]CEIP";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1855::9::Registry";
+ ValueData = {
+    "2"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Messenger\\Client";
+ ValueName = "CEIP";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource103ref
+{
+ResourceID = "[Registry]CEIPEnable";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1864::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\SQMClient\\Windows";
+ ValueName = "CEIPEnable";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource104ref
+{
+ResourceID = "[Registry]Disabled2";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1873::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Error Reporting";
+ ValueName = "Disabled";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource105ref
+{
+ResourceID = "[Registry]DoReport";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1882::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\PCHealth\\ErrorReporting";
+ ValueName = "DoReport";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource106ref
+{
+ResourceID = "[Registry]DevicePKInitBehavior";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1891::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\kerberos\\parameters";
+ ValueName = "DevicePKInitBehavior";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource107ref
+{
+ResourceID = "[Registry]DevicePKInitEnabled";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1899::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\kerberos\\parameters";
+ ValueName = "DevicePKInitEnabled";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource108ref
+{
+ResourceID = "[Registry]DeviceEnumerationPolicy";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1908::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Kernel DMA Protection";
+ ValueName = "DeviceEnumerationPolicy";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource109ref
+{
+ResourceID = "[Registry]BlockUserInputMethodsForSignIn";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1917::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\ControlPanel\\International";
+ ValueName = "BlockUserInputMethodsForSignIn";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource110ref
+{
+ResourceID = "[Registry]BlockUserFromShowingAccountDetailsOnSignin";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1926::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System";
+ ValueName = "BlockUserFromShowingAccountDetailsOnSignin";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource111ref
+{
+ResourceID = "[Registry]DontDisplayNetworkSelectionUI";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1935::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System";
+ ValueName = "DontDisplayNetworkSelectionUI";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource112ref
+{
+ResourceID = "[Registry]DontEnumerateConnectedUsers";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1944::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System";
+ ValueName = "DontEnumerateConnectedUsers";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource113ref
+{
+ResourceID = "[Registry]EnumerateLocalUsers";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1953::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System";
+ ValueName = "EnumerateLocalUsers";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource114ref
+{
+ResourceID = "[Registry]DisableLockScreenAppNotifications";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1962::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System";
+ ValueName = "DisableLockScreenAppNotifications";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource115ref
+{
+ResourceID = "[Registry]BlockDomainPicturePassword";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1971::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System";
+ ValueName = "BlockDomainPicturePassword";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource116ref
+{
+ResourceID = "[Registry]AllowDomainPINLogon";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1980::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System";
+ ValueName = "AllowDomainPINLogon";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource117ref
+{
+ResourceID = "[Registry]AllowCrossDeviceClipboard";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1989::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System";
+ ValueName = "AllowCrossDeviceClipboard";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource118ref
+{
+ResourceID = "[Registry]AllowUploadUserActivities";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::1998::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System";
+ ValueName = "UploadUserActivities";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource119ref
+{
+ResourceID = "[Registry]DCSettingIndex";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2007::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Power\\PowerSettings\\f15576e8-98b7-4186-b944-eafa664402d9";
+ ValueName = "DCSettingIndex";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource120ref
+{
+ResourceID = "[Registry]ACSettingIndex";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2016::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Power\\PowerSettings\\f15576e8-98b7-4186-b944-eafa664402d9";
+ ValueName = "ACSettingIndex";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource121ref
+{
+ResourceID = "[Registry]DCSettingIndex2";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2025::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Power\\PowerSettings\\0e796bdb100d-47d6-a2d5-f7d2daa51f51";
+ ValueName = "DCSettingIndex";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource122ref
+{
+ResourceID = "[Registry]ACSettingIndex2";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2034::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Power\\PowerSettings\\0e796bdb100d-47d6-a2d5-f7d2daa51f51";
+ ValueName = "ACSettingIndex";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource123ref
+{
+ResourceID = "[Registry]fAllowUnsolicited";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2043::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services";
+ ValueName = "fAllowUnsolicited";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource124ref
+{
+ResourceID = "[Registry]fAllowToGetHelp";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2052::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services";
+ ValueName = "fAllowToGetHelp";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource125ref
+{
+ResourceID = "[Registry]EnableAuthEpResolution";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2061::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsNT\\Rpc";
+ ValueName = "EnableAuthEpResolution";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource126ref
+{
+ResourceID = "[Registry]RestrictRemoteClients";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2070::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsNT\\Rpc";
+ ValueName = "RestrictRemoteClients";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource127ref
+{
+ResourceID = "[Registry]DisableQueryRemoteServer";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2079::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\ScriptedDiagnosticsProvider\\Policy";
+ ValueName = "DisableQueryRemoteServer";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource128ref
+{
+ResourceID = "[Registry]ScenarioExecutionEnabled";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2088::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WDI\\{9c5a40da-b965-4fc3-8781-88dd50a6299d}";
+ ValueName = "ScenarioExecutionEnabled";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource129ref
+{
+ResourceID = "[Registry]DisabledByGroupPolicy";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2097::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\policies\\Microsoft\\Windows\\AdvertisingInfo";
+ ValueName = "DisabledByGroupPolicy";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource130ref
+{
+ResourceID = "[Registry]EnableNTPClient";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2106::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\W32Time\\TimeProviders\\NtpClient";
+ ValueName = "Enabled";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource131ref
+{
+ResourceID = "[Registry]EnableNTPServer";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2115::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\W32Time\\TimeProviders\\NtpServer";
+ ValueName = "Enabled";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource132ref
+{
+ResourceID = "[Registry]AllowSharedLocalAppData";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2124::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\CurrentVersion\\AppModel\\StateManager";
+ ValueName = "AllowSharedLocalAppData";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource133ref
+{
+ResourceID = "[Registry]MSAOptional";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2133::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System";
+ ValueName = "MSAOptional";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource134ref
+{
+ResourceID = "[Registry]NoAutoplayfornonVolume";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2142::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer";
+ ValueName = "NoAutoplayfornonVolume";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource135ref
+{
+ResourceID = "[Registry]NoAutorun";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2151::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer";
+ ValueName = "NoAutorun";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource136ref
+{
+ResourceID = "[Registry]NoDriveTypeAutoRun";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2160::9::Registry";
+ ValueData = {
+    "255"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer";
+ ValueName = "NoDriveTypeAutoRun";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource137ref
+{
+ResourceID = "[Registry]EnhancedAntiSpoofing";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2169::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Biometrics\\FacialFeatures";
+ ValueName = "EnhancedAntiSpoofing";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource138ref
+{
+ResourceID = "[Registry]AllowCamera";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2178::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Camera";
+ ValueName = "AllowCamera";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource139ref
+{
+ResourceID = "[Registry]DisableWindowsConsumerFeatures";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2187::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent";
+ ValueName = "DisableWindowsConsumerFeatures";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource140ref
+{
+ResourceID = "[Registry]RequirePinForPairing";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2196::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Connect";
+ ValueName = "RequirePinForPairing";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource141ref
+{
+ResourceID = "[Registry]DisablePasswordReveal";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2205::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Windows\\CredUI";
+ ValueName = "DisablePasswordReveal";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource142ref
+{
+ResourceID = "[Registry]EnumerateAdministrators";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2214::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\CredUI";
+ ValueName = "EnumerateAdministrators";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource143ref
+{
+ResourceID = "[Registry]AllowTelemetry";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2223::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection";
+ ValueName = "AllowTelemetry";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource144ref
+{
+ResourceID = "[Registry]DisableEnterpriseAuthProxy";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2232::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection";
+ ValueName = "DisableEnterpriseAuthProxy";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource145ref
+{
+ResourceID = "[Registry]DoNotShowFeedbackNotifications";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2241::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection";
+ ValueName = "DoNotShowFeedbackNotifications";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource146ref
+{
+ResourceID = "[Registry]AllowBuildPreview";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2250::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\PreviewBuilds";
+ ValueName = "AllowBuildPreview";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource147ref
+{
+ResourceID = "[Registry]RetentionApplicationLog";
+ Ensure = "Present";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2259::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\EventLog\\Application";
+ ValueName = "Retention";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource148ref
+{
+ResourceID = "[Registry]MaxSizeApplicationLog";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2268::9::Registry";
+ ValueData = {
+    "32768"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\EventLog\\Application";
+ ValueName = "MaxSize";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource149ref
+{
+ResourceID = "[Registry]RetentionSecurityLog";
+ Ensure = "Present";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2277::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\EventLog\\Security";
+ ValueName = "Retention";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource150ref
+{
+ResourceID = "[Registry]MaxSizeSecurityLog";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2286::9::Registry";
+ ValueData = {
+    "196608"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\EventLog\\Security";
+ ValueName = "MaxSize";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource151ref
+{
+ResourceID = "[Registry]RetentionSetupLog";
+ Ensure = "Present";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2295::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\EventLog\\Setup";
+ ValueName = "Retention";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource152ref
+{
+ResourceID = "[Registry]MaxSizeSetupLog";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2304::9::Registry";
+ ValueData = {
+    "32768"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\EventLog\\Setup";
+ ValueName = "MaxSize";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource153ref
+{
+ResourceID = "[Registry]RetentionSystemLog";
+ Ensure = "Present";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2313::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\EventLog\\System";
+ ValueName = "Retention";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource154ref
+{
+ResourceID = "[Registry]MaxSizeSystemLog";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2322::9::Registry";
+ ValueData = {
+    "32768"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\EventLog\\System";
+ ValueName = "MaxSize";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource155ref
+{
+ResourceID = "[Registry]NoDataExecutionPrevention";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2331::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer";
+ ValueName = "NoDataExecutionPrevention";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource156ref
+{
+ResourceID = "[Registry]NoHeapTerminationOnCorruption";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2340::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer";
+ ValueName = "NoHeapTerminationOnCorruption";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource157ref
+{
+ResourceID = "[Registry]PreXPSP2ShellProtocolBehavior";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2349::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer";
+ ValueName = "PreXPSP2ShellProtocolBehavior";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource158ref
+{
+ResourceID = "[Registry]DisableLocation";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2358::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\LocationAndSensors";
+ ValueName = "DisableLocation";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource159ref
+{
+ResourceID = "[Registry]AllowMessageSync";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2367::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Messaging";
+ ValueName = "AllowMessageSync";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource160ref
+{
+ResourceID = "[Registry]DisableUserAuth";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2376::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\MicrosoftAccount";
+ ValueName = "DisableUserAuth";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource161ref
+{
+ResourceID = "[Registry]DisableFileSyncNGSC";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2385::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\OneDrive";
+ ValueName = "DisableFileSyncNGSC";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource162ref
+{
+ResourceID = "[Registry]DisablePasswordSaving";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2394::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services";
+ ValueName = "DisablePasswordSaving";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource163ref
+{
+ResourceID = "[Registry]fSingleSessionPerUser";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2403::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services";
+ ValueName = "fSingleSessionPerUser";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource164ref
+{
+ResourceID = "[Registry]fDisableCcm";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2412::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services";
+ ValueName = "fDisableCcm";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource165ref
+{
+ResourceID = "[Registry]fDisableLPT";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2430::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services";
+ ValueName = "fDisableLPT";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource166ref
+{
+ResourceID = "[Registry]fDisablePNPRedir";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2439::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services";
+ ValueName = "fDisablePNPRedir";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource167ref
+{
+ResourceID = "[Registry]fPromptForPassword";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2448::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services";
+ ValueName = "fPromptForPassword";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource168ref
+{
+ResourceID = "[Registry]fEncryptRPCTraffic";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2457::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services";
+ ValueName = "fEncryptRPCTraffic";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource169ref
+{
+ResourceID = "[Registry]SecurityLayer";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2466::9::Registry";
+ ValueData = {
+    "2"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services";
+ ValueName = "SecurityLayer";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource170ref
+{
+ResourceID = "[Registry]UserAuthentication";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2475::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services";
+ ValueName = "UserAuthentication";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource171ref
+{
+ResourceID = "[Registry]MinEncryptionLevel";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2484::9::Registry";
+ ValueData = {
+    "3"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services";
+ ValueName = "MinEncryptionLevel";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource172ref
+{
+ResourceID = "[Registry]MaxIdleTime";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2493::9::Registry";
+ ValueData = {
+    "900000"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services";
+ ValueName = "MaxIdleTime";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource173ref
+{
+ResourceID = "[Registry]MaxDisconnectionTime";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2502::9::Registry";
+ ValueData = {
+    "60000"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services";
+ ValueName = "MaxDisconnectionTime";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource174ref
+{
+ResourceID = "[Registry]DeleteTempDirsOnExit";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2511::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services";
+ ValueName = "DeleteTempDirsOnExit";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource175ref
+{
+ResourceID = "[Registry]PerSessionTempDir";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2520::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services";
+ ValueName = "PerSessionTempDir";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource176ref
+{
+ResourceID = "[Registry]DisableEnclosureDownload";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2529::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\InternetExplorer\\Feeds";
+ ValueName = "DisableEnclosureDownload";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource177ref
+{
+ResourceID = "[Registry]AllowCloudSearch";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2538::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsSearch";
+ ValueName = "AllowCloudSearch";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource178ref
+{
+ResourceID = "[Registry]AllowIndexingEncryptedStoresOrItems";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2547::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsSearch";
+ ValueName = "AllowIndexingEncryptedStoresOrItems";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource179ref
+{
+ResourceID = "[Registry]NoGenTicket";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2556::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\CurrentVersion\\Software Protection Platform";
+ ValueName = "NoGenTicket";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource180ref
+{
+ResourceID = "[Registry]LocalSettingOverrideSpynetReporting";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2565::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsDefender\\Spynet";
+ ValueName = "LocalSettingOverrideSpynetReporting";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource181ref
+{
+ResourceID = "[Registry]SpynetReporting";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2574::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsDefender\\Spynet";
+ ValueName = "SpynetReporting";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource182ref
+{
+ResourceID = "[Registry]DisableBehaviorMonitoring";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2583::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection";
+ ValueName = "DisableBehaviorMonitoring";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource183ref
+{
+ResourceID = "[Registry]DisableGenericRePorts";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2592::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsDefender\\Reporting";
+ ValueName = "DisableGenericRePorts";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource184ref
+{
+ResourceID = "[Registry]DisableRemovableDriveScanning";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2601::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsDefender\\Scan";
+ ValueName = "DisableRemovableDriveScanning";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource185ref
+{
+ResourceID = "[Registry]EnableEmailScanning";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2610::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsDefender\\Scan";
+ ValueName = "EnableEmailScanning";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource186ref
+{
+ResourceID = "[Registry]ExploitGuard_ASR_Rules";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2619::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Windows Defender Exploit Guard\\ASR";
+ ValueName = "ExploitGuard_ASR_Rules";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource187ref
+{
+ResourceID = "[Registry]75668c1f-73b5-4cf0-bb93-3ecf5cb7cc84";
+ Ensure = "Present";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2628::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Windows Defender Exploit Guard\\ASR\\Rules";
+ ValueName = "75668c1f-73b5-4cf0-bb93-3ecf5cb7cc84";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource188ref
+{
+ResourceID = "[Registry]3b576869-a4ec-4529-8536-b80a7769e899";
+ Ensure = "Present";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2636::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Windows Defender Exploit Guard\\ASR\\Rules";
+ ValueName = "3b576869-a4ec-4529-8536-b80a7769e899";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource189ref
+{
+ResourceID = "[Registry]d4f940ab-401b-4efc-aadc-ad5f3c50688a";
+ Ensure = "Present";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2644::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Windows Defender Exploit Guard\\ASR\\Rules";
+ ValueName = "d4f940ab-401b-4efc-aadc-ad5f3c50688a";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource190ref
+{
+ResourceID = "[Registry]92e97fa1-2edf-4476-bdd6-9dd0b4dddc7b";
+ Ensure = "Present";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2652::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Windows Defender Exploit Guard\\ASR\\Rules";
+ ValueName = "92e97fa1-2edf-4476-bdd6-9dd0b4dddc7b";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource191ref
+{
+ResourceID = "[Registry]5beb7efe-fd9a-4556-801d-275e5ffc04cc";
+ Ensure = "Present";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2660::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Windows Defender Exploit Guard\\ASR\\Rules";
+ ValueName = "5beb7efe-fd9a-4556-801d-275e5ffc04cc";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource192ref
+{
+ResourceID = "[Registry]d3e037e1-3eb8-44c8-a917-57927947596d";
+ Ensure = "Present";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2668::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Windows Defender Exploit Guard\\ASR\\Rules";
+ ValueName = "d3e037e1-3eb8-44c8-a917-57927947596d";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource193ref
+{
+ResourceID = "[Registry]be9ba2d9-53ea-4cdc-84e5-9b1eeee46550";
+ Ensure = "Present";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2676::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Windows Defender Exploit Guard\\ASR\\Rules";
+ ValueName = "be9ba2d9-53ea-4cdc-84e5-9b1eeee46550";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource194ref
+{
+ResourceID = "[Registry]EnableNetworkProtection";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2685::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Windows Defender Exploit Guard\\Network Protection";
+ ValueName = "EnableNetworkProtection";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource195ref
+{
+ResourceID = "[Registry]PUAProtection";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2694::9::Registry";
+ ValueData = {
+    "2"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsDefender";
+ ValueName = "PUAProtection";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource196ref
+{
+ResourceID = "[Registry]DisableAntiSpyware";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2703::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsDefender";
+ ValueName = "DisableAntiSpyware";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource197ref
+{
+ResourceID = "[Registry]EnableSmartScreen";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2712::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System";
+ ValueName = "EnableSmartScreen";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource198ref
+{
+ResourceID = "[Registry]ShellSmartScreenLevel";
+ Ensure = "Present";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2720::9::Registry";
+ ValueData = {
+    "Block"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System";
+ ValueName = "ShellSmartScreenLevel";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource199ref
+{
+ResourceID = "[Registry]AllowSuggestedAppsInWindowsInkWorkspace";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2730::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsInkWorkspace";
+ ValueName = "AllowSuggestedAppsInWindowsInkWorkspace";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource200ref
+{
+ResourceID = "[Registry]AllowWindowsInkWorkspace";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2739::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\WindowsInkWorkspace";
+ ValueName = "AllowWindowsInkWorkspace";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource201ref
+{
+ResourceID = "[Registry]EnableUserControl";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2748::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Installer";
+ ValueName = "EnableUserControl";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource202ref
+{
+ResourceID = "[Registry]AlwaysInstallElevated";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2757::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Installer";
+ ValueName = "AlwaysInstallElevated";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource203ref
+{
+ResourceID = "[Registry]SafeForScripting";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2766::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Installer";
+ ValueName = "SafeForScripting";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource204ref
+{
+ResourceID = "[Registry]DisableAutomaticRestartSignOn";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2775::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System";
+ ValueName = "DisableAutomaticRestartSignOn";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource205ref
+{
+ResourceID = "[Registry]EnableScriptBlockLogging";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2784::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\PowerShell\\ScriptBlockLogging";
+ ValueName = "EnableScriptBlockLogging";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource206ref
+{
+ResourceID = "[Registry]EnableTranscripting";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2793::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\PowerShell\\Transcription";
+ ValueName = "EnableTranscripting";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource207ref
+{
+ResourceID = "[Registry]AllowBasic";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2802::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WinRM\\Client";
+ ValueName = "AllowBasic";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource208ref
+{
+ResourceID = "[Registry]AllowUnencryptedTraffic";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2811::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WinRM\\Client";
+ ValueName = "AllowUnencryptedTraffic";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource209ref
+{
+ResourceID = "[Registry]AllowDigest";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2820::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WinRM\\Client";
+ ValueName = "AllowDigest";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource210ref
+{
+ResourceID = "[Registry]AllowBasic2";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2829::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WinRM\\Service";
+ ValueName = "AllowBasic";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource211ref
+{
+ResourceID = "[Registry]AllowAutoConfig";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2839::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WinRM\\Service";
+ ValueName = "AllowAutoConfig";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource212ref
+{
+ResourceID = "[Registry]AllowUnencryptedTraffic2";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2848::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WinRM\\Service";
+ ValueName = "AllowUnencryptedTraffic";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource213ref
+{
+ResourceID = "[Registry]DisableRunAs";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2857::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WinRM\\Service";
+ ValueName = "DisableRunAs";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource214ref
+{
+ResourceID = "[Registry]AllowRemoteShellAccess";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2866::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WinRM\\Service\\WinRS";
+ ValueName = "AllowRemoteShellAccess";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource215ref
+{
+ResourceID = "[Registry]DisallowExploitProtectionOverride";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2875::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows Defender Security Center\\App and Browser protection";
+ ValueName = "DisallowExploitProtectionOverride";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource216ref
+{
+ResourceID = "[Registry]ManagePreviewBuilds";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2884::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate";
+ ValueName = "ManagePreviewBuilds";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource217ref
+{
+ResourceID = "[Registry]ManagePreviewBuildsPolicyValue";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2893::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate";
+ ValueName = "ManagePreviewBuildsPolicyValue";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource218ref
+{
+ResourceID = "[Registry]DeferFeatureUpdates";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2902::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate";
+ ValueName = "DeferFeatureUpdates";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource219ref
+{
+ResourceID = "[Registry]DeferFeatureUpdatesPeriodInDays";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2911::9::Registry";
+ ValueData = {
+    "180"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate";
+ ValueName = "DeferFeatureUpdatesPeriodInDays";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource220ref
+{
+ResourceID = "[Registry]BranchReadinessLevel";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2919::9::Registry";
+ ValueData = {
+    "32"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate";
+ ValueName = "BranchReadinessLevel";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource221ref
+{
+ResourceID = "[Registry]DeferQualityUpdates";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2928::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate";
+ ValueName = "DeferQualityUpdates";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource222ref
+{
+ResourceID = "[Registry]DeferQualityUpdatesPeriodInDays";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2936::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate";
+ ValueName = "DeferQualityUpdatesPeriodInDays";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource223ref
+{
+ResourceID = "[Registry]NoAutoUpdate";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2945::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU";
+ ValueName = "NoAutoUpdate";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource224ref
+{
+ResourceID = "[Registry]ScheduledInstallDay";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2954::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU";
+ ValueName = "ScheduledInstallDay";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource225ref
+{
+ResourceID = "[Registry]NoAutoRebootWithLoggedOnUsers";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2963::9::Registry";
+ ValueData = {
+    "0"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU";
+ ValueName = "NoAutoRebootWithLoggedOnUsers";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource226ref
+{
+ResourceID = "[Registry]ScreenSaveActive";
+ Ensure = "Present";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2973::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_CURRENT_USER\\SOFTWARE\\Policies\\Microsoft\\Windows\\Control Panel\\Desktop";
+ ValueName = "ScreenSaveActive";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource227ref
+{
+ResourceID = "[Registry]SCRNSAVE.EXE";
+ Ensure = "Present";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2982::9::Registry";
+ ValueData = {
+    "scrnsave.scr"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_CURRENT_USER\\SOFTWARE\\Policies\\Microsoft\\Windows\\Control Panel\\Desktop";
+ ValueName = "SCRNSAVE.EXE";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource228ref
+{
+ResourceID = "[Registry]ScreenSaverIsSecure";
+ Ensure = "Present";
+ ValueType = "String";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::2991::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_CURRENT_USER\\SOFTWARE\\Policies\\Microsoft\\Windows\\Control Panel\\Desktop";
+ ValueName = "ScreenSaverIsSecure";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource229ref
+{
+ResourceID = "[Registry]ScreenSaveTimeOut";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::3000::9::Registry";
+ ValueData = {
+    "900"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_CURRENT_USER\\SOFTWARE\\Policies\\Microsoft\\Windows\\Control Panel\\Desktop";
+ ValueName = "ScreenSaveTimeOut";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource230ref
+{
+ResourceID = "[Registry]NoToastApplicationNotificationOnLockScreen";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::3009::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_CURRENT_USER\\SOFTWARE\\Policies\\Microsoft\\Windows\\CurrentVersion\\PushNotifications";
+ ValueName = "NoToastApplicationNotificationOnLockScreen";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource231ref
+{
+ResourceID = "[Registry]NoImplicitFeedback";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::3018::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_CURRENT_USER\\SOFTWARE\\Policies\\Microsoft\\Assistance\\Client\\1.0";
+ ValueName = "NoImplicitFeedback";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource232ref
+{
+ResourceID = "[Registry]SaveZoneInformation";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::3027::9::Registry";
+ ValueData = {
+    "2"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Attachments";
+ ValueName = "SaveZoneInformation";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource233ref
+{
+ResourceID = "[Registry]ScanWithAntiVirus";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::3036::9::Registry";
+ ValueData = {
+    "3"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Attachments";
+ ValueName = "ScanWithAntiVirus";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource234ref
+{
+ResourceID = "[Registry]ConfigureWindowsSpotlight";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::3045::9::Registry";
+ ValueData = {
+    "2"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Windows\\CloudContent";
+ ValueName = "ConfigureWindowsSpotlight";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource235ref
+{
+ResourceID = "[Registry]DisableThirdPartySuggestions";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::3054::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Windows\\CloudContent";
+ ValueName = "DisableThirdPartySuggestions";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource236ref
+{
+ResourceID = "[Registry]DisableTailoredExperiencesWithDiagnosticData";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::3063::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Windows\\CloudContent";
+ ValueName = "DisableTailoredExperiencesWithDiagnosticData";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource237ref
+{
+ResourceID = "[Registry]DisableWindowsSpotlightFeatures";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::3072::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Windows\\CloudContent";
+ ValueName = "DisableWindowsSpotlightFeatures";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource238ref
+{
+ResourceID = "[Registry]NoInplaceSharing";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::3081::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer";
+ ValueName = "NoInplaceSharing";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource239ref
+{
+ResourceID = "[Registry]PreventCodecDownload";
+ Ensure = "Present";
+ ValueType = "Dword";
+ SourceInfo = "C:\\Users\\chris\\OneDrive\\Documents\\Projects\\Gold Image\\Staging\\win2019_CIS_Local_v1.ps1::3101::9::Registry";
+ ValueData = {
+    "1"
+};
+ ModuleName = "PsDesiredStateConfiguration";
+ Key = "HKEY_CURRENT_USER\\SOFTWARE\\Policies\\Microsoft\\WindowsMediaPlayer";
+ ValueName = "PreventCodecDownload";
+
+ModuleVersion = "1.0";
+ ConfigurationName = "cis_local";
+};
+instance of OMI_ConfigurationDocument
+
+                    {
+ Version="2.0.0";
+
+                        MinimumCompatibleVersion = "1.0.0";
+
+                        CompatibleVersionAdditionalProperties= {"Omi_BaseResource:ConfigurationName"};
+
+                        Author="chris";
+
+                        GenerationDate="02/02/2021 08:35:40";
+
+                        GenerationHost="SAXON";
+
+                        Name="cis_local";
+
+                    };
