@@ -1,32 +1,50 @@
-# Staging Script
-Write-Output "Installing NuGet"
-Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+# Staging script
 
-Write-Output "Installing NetworkingDSC module"
-Install-Module -Name "NetworkingDSC" -Force -Repository PSGallery
+# Check for Required components
+if (Get-ChildItem 'C:\Program Files\WindowsPowerShell\Modules\AuditPolicyDsc\'){
+    If (Get-ChildItem 'C:\Program Files\WindowsPowerShell\Modules\NetworkingDsc\'){
+        if (Get-ChildItem 'C:\Program Files\WindowsPowerShell\Modules\SecurityPolicyDsc\'){
+            Write-Output "All Powershell Module Dependencies are met"
+        }else {
+            Write-Output "Missing NetworkingDsc"
+            exit
+        }
+    }else {
+        Write-Output "Missing NetworkingDsc"
+        exit 
+    }
+}else {
+    Write-Output "Missing AuditPolicyDsc"
+    exit
+}
 
-Write-Output "Installing AuditPolicyDSC module"
-Install-Module -Name AuditPolicyDsc -Force -Repository PSGallery
+# Apply Base Configuration
+If (Get-ChildItem 'C:\deploy\FRS_Win19_GI_v1\'){
+    Write-Output "Setting Local Gold Image Configuration"
+    Start-DscConfiguration -Path C:\deploy\FRS_Win19_GI_v1\ -wait   
+}else {
+    Write-Output "Missing Local Configuration File"
+    exit
+}
 
-Write-Output "Installing SecurityPolicyDsc module"
-Install-Module -Name SecurityPolicyDsc -Force -Repository PSGallery
+# Remove Configuration Document (allows later check in with Automation Account)
+Remove-DscConfigurationDocument -Stage Current, Pending, Previous
 
-# Write-Output "Installing xPSDesiredStateConfiguration module"
-# Install-Module -Name xPSDesiredStateConfiguration -Force -Repository PSGallery
+# Create a scheduled task to run after Sysprep
+If (Get-ChildItem 'C:\deploy\postsysprep.ps1'){
+    Write-Output "Setting Post Sysprep Scheduled Task"
+    $actionSystem = New-ScheduledTaskAction -Execute 'Powershell.exe' -Argument '-NoProfile -NonInteractive -file c:\deploy\postsysprep.ps1 -executionpolicy bypass'
+    $triggerSystem = New-ScheduledTaskTrigger -AtStartup 
+    $pricipalSystem = New-ScheduledTaskPrincipal -UserId "System" -LogonType ServiceAccount
+    Register-ScheduledTask -Action $actionSystem -Trigger $triggerSystem -Principal $pricipalSystem -TaskName "PostSysprep" -Description "FRS - Register with Management Tools"
+}else {
+    Write-Output "Missing PostSysPrep.ps1 file"
+    exit
+}
 
-Write-Output "Applying Local Configuration"
-Start-DscConfiguration -Path C:\Staging\cis_local\ -ComputerName localhost
-Get-Job | Wait-Job
-
-Write-Output "Staging AutoConfig for first boot"
-# $Action = New-ScheduledTaskAction -Execute powershell.exe -Argument '-NoProfile -WindowStyle Hidden c:\staging\autoexec.ps1'
-$Action = New-ScheduledTaskAction -Execute powershell.exe -Argument 'c:\staging\autoexec.ps1'
-$Trigger = New-ScheduledTaskTrigger -AtStartup
-$Settings= New-ScheduledTaskSettingsSet -StartWhenAvailable
-$Principal = New-ScheduledTaskPrincipal -UserId "System" -LogonType ServiceAccount -RunLevel 'Highest'
-
-Register-ScheduledTask -TaskName "Register Computer" -Action $Action -Trigger $Trigger -Settings $Settings -Principal $Principal
-
-Write-Output "running Sysprep"
-Set-Location $env:windir\system32\sysprep
-.\sysprep.exe /generalize /shutdown /oobe
+# Create a scheduled task to run after Sysprep if a user logs in, before the reboot
+Write-Output "Setting Post Sysprep User Message Task"
+$actionUser = New-ScheduledTaskAction -Execute 'Powershell.exe' -Argument '-noprofile -nologo -noexit -command write-host "The system is applying final configuration updates and will reboot within 2 minutes"'
+$triggerUser = New-ScheduledTaskTrigger -AtLogOn
+Register-ScheduledTask -Action $actionUser -Trigger $triggerUser -TaskName "UserMessage" -Description "UserMessage"
+C:\Windows\System32\Sysprep\sysprep.exe /unattend:c:\deploy\unattend.xml /generalize /shutdown /oobe

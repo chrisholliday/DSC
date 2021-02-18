@@ -1,0 +1,68 @@
+/*
+@TargetNode='localhost'
+@GeneratedBy=chris
+@GenerationDate=02/11/2021 10:54:17
+@GenerationHost=SAXON
+*/
+
+instance of MSFT_WebDownloadManager as $MSFT_WebDownloadManager1ref
+{
+ResourceID = "[ConfigurationRepositoryWeb]AzureAutomationDSC";
+ ServerURL = "https://b76d6cc9-4727-4633-9aba-45328875e255.agentsvc.eus2.azure-automation.net/accounts/b76d6cc9-4727-4633-9aba-45328875e255";
+ ConfigurationNames = {
+    "FRS_Win19_v1.localhost"
+};
+ SourceInfo = "C:\\Users\\chris\\Documents\\Azure\\AADSC_Meta.ps1::67::12::ConfigurationRepositoryWeb";
+ RegistrationKey = "30xAJKN859qJ1v2ZuBAIWD45m3xby5Z8u/x/JiIv1ZyV7OJi3MN3zqik1F3Kjp685kXbMpECNYLA39VviBi0Yg==";
+
+};
+
+instance of MSFT_WebResourceManager as $MSFT_WebResourceManager1ref
+{
+ResourceID = "[ResourceRepositoryWeb]AzureAutomationDSC";
+ ServerURL = "https://b76d6cc9-4727-4633-9aba-45328875e255.agentsvc.eus2.azure-automation.net/accounts/b76d6cc9-4727-4633-9aba-45328875e255";
+ SourceInfo = "C:\\Users\\chris\\Documents\\Azure\\AADSC_Meta.ps1::74::13::ResourceRepositoryWeb";
+ RegistrationKey = "30xAJKN859qJ1v2ZuBAIWD45m3xby5Z8u/x/JiIv1ZyV7OJi3MN3zqik1F3Kjp685kXbMpECNYLA39VviBi0Yg==";
+
+};
+
+instance of MSFT_WebReportManager as $MSFT_WebReportManager1ref
+{
+ResourceID = "[ReportServerWeb]AzureAutomationDSC";
+ ServerURL = "https://b76d6cc9-4727-4633-9aba-45328875e255.agentsvc.eus2.azure-automation.net/accounts/b76d6cc9-4727-4633-9aba-45328875e255";
+ SourceInfo = "C:\\Users\\chris\\Documents\\Azure\\AADSC_Meta.ps1::81::9::ReportServerWeb";
+ RegistrationKey = "30xAJKN859qJ1v2ZuBAIWD45m3xby5Z8u/x/JiIv1ZyV7OJi3MN3zqik1F3Kjp685kXbMpECNYLA39VviBi0Yg==";
+
+};
+
+instance of MSFT_DSCMetaConfiguration as $MSFT_DSCMetaConfiguration1ref
+{
+ConfigurationModeFrequencyMins = 15;
+ ConfigurationMode = "ApplyAndAutoCorrect";
+ RebootNodeIfNeeded = True;
+ RefreshFrequencyMins = 30;
+ ActionAfterReboot = "ContinueConfiguration";
+ RefreshMode = "Pull";
+ AllowModuleOverwrite = True;
+
+  ResourceModuleManagers = {
+  $MSFT_WebResourceManager1ref  
+ };
+  ReportManagers = {
+  $MSFT_WebReportManager1ref  
+ };
+  ConfigurationDownloadManagers = {
+  $MSFT_WebDownloadManager1ref  
+ };
+};
+
+instance of OMI_ConfigurationDocument
+{
+ Version="2.0.0";
+ MinimumCompatibleVersion = "2.0.0";
+ CompatibleVersionAdditionalProperties= { "MSFT_DSCMetaConfiguration:StatusRetentionTimeInDays" };
+ Author="chris";
+ GenerationDate="02/11/2021 10:54:17";
+ GenerationHost="SAXON";
+ Name="DscMetaConfigs";
+};
