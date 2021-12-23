@@ -20,7 +20,7 @@ Step Six - Execute the updated AADSC_Meta.ps1 file to create your "localhost.MOF
 
 Step Seven - Stage the file somewhere, I typically choose "C:\\DscMetaConfigs" 
 
-Step Six - Run Command "Set-DscLocalConfigurationManager -Path 'C:\DscMetaConfigs' -ComputerName localhost".  
+Step Six - Run the command "*Set-DscLocalConfigurationManager -Path 'C:\DscMetaConfigs' -ComputerName localhost*".  
 
 Step Seven - Check your Automation Account, it should almost instantly be detected and start evaluating compliance.  
 
